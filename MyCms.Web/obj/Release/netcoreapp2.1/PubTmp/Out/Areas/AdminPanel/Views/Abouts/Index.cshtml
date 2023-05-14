@@ -1,0 +1,138 @@
+﻿@model IEnumerable<MyCms.DomainClasses.About.About>
+
+@{
+    ViewData["Title"] = "Show List Of About";
+}
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <h3 class="panel-title">About List</h3>
+    </div>
+    <div class="panel-body" style=" overflow-y: scroll; height: 650px;">
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Name)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.HomeDesc)
+                            </th>
+                            @*<th>
+            @Html.DisplayNameFor(model => model.Mobile)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TelPhon)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AboutHeader)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AboutTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AboutDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InstagramID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LinkdinAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TwitterAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FacebookAddress)
+        </th>*@
+                            <th>
+                                @Html.DisplayNameFor(model => model.Status)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CreatedDate)
+                            </th>
+                            @*<th>
+            @Html.DisplayNameFor(model => model.CreatorUserID)
+        </th>*@
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.HomeDesc)
+                            </td>
+                            @* <td>
+            @Html.DisplayFor(modelItem => item.Mobile)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TelPhon)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AboutHeader)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AboutTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AboutDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InstagramID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LinkdinAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TwitterAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FacebookAddress)
+        </td>*@
+                            <td>
+                                @if (@item.Status == true)
+                                {<p>Enable</p>}
+                                @if (@item.Status == false)
+                                {<p>Disable</p>}
+                            </td>
+                            <td>
+                                @DateConvertor.ToShamsi(item.CreatedDate)
+                            </td>
+                            @*<td>
+            @Html.DisplayFor(modelItem => item.CreatorUserID)
+        </td>*@
+                            <td>
+                                <a asp-action="Edit" asp-route-id="@item.AboutID" class="btn btn-sm  btn-primary">Edit</a> |
+                                <a asp-action="Details" asp-route-id="@item.AboutID" class="btn btn-sm btn-info">Details</a> |
+                                <a asp-action="Delete" asp-route-id="@item.AboutID" class="btn  btn-sm btn-danger">Delete</a>
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+                <div class="panel-footer">
+                    <a asp-action="Create" class="btn btn-success">Create New About </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

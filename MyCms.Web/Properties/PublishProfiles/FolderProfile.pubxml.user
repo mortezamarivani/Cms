@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_PublishTargetUrl>G:\ProjectMyCms\02MyCms\Publish</_PublishTargetUrl>
+    <History>True|2022-04-16T13:52:19.4731315Z;True|2022-04-16T06:51:53.6831685-07:00;True|2022-03-01T01:44:26.2955544-08:00;</History>
+  </PropertyGroup>
+</Project>

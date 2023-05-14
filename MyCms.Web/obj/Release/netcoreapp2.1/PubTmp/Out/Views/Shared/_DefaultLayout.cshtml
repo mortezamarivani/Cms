@@ -1,0 +1,153 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>Morteza marivani Personal Web Site </title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="templatemo">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700,800' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/jquery.fullPage.css">
+    <link rel="stylesheet" href="css/templatemo-style.css">
+    @*<link rel="stylesheet" type="text/css" href="~/css/style.css">*@
+
+
+</head>
+<body>
+
+    <div id="fullpage">
+
+        @if (ViewBag.ShowHome == true)
+        {
+            <!-- start home -->
+            <div id="home" class="section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 wow fadeIn" data-wow-delay="0.9s">
+                            @await Component.InvokeAsync("ShowSkillsComponent")
+                            @await Component.InvokeAsync("ShowResumsComponent")
+                        </div>
+                        <div class="col-md-2"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- end home -->
+        }
+
+        @if (ViewBag.ShowIDO == true)
+        {
+            <!-- start work -->
+            <div id="work" class="section">
+                <div class="container">
+                    @await Component.InvokeAsync("ShowSkillsDescComponent")
+                </div>
+            </div>
+            <!-- end work -->
+        }
+
+        @if (ViewBag.ShowProject == true)
+        {
+            <div id="about" class="section">
+                <div class="container">
+                    @await Component.InvokeAsync("ProjectComponent")
+                </div>
+            </div>
+        }
+        @if (ViewBag.ShowRank == true || ViewBag.ShowCours == true || ViewBag.ShowEducation == true)
+        {
+            <div id="work" class="section">
+                <div class="container">
+                    @if (ViewBag.ShowCours == true)
+                    {
+                        @await Component.InvokeAsync("CourseComponent")
+                    }
+                    @if (ViewBag.ShowRank == true)
+                    {
+                        @await Component.InvokeAsync("RankComponent")
+                    }
+                    @if (ViewBag.ShowEducation == true)
+                    {
+                        @await Component.InvokeAsync("EducationComponent")
+                    }
+                </div>
+            </div>
+        }
+
+        @if (ViewBag.ShowSkills == true)
+        {
+            <!-- start about -->
+            <div id="about" class="section">
+                <div class="container">
+                    <div class="row">
+                        @await Component.InvokeAsync("AboutTitleComponent")
+                        @await Component.InvokeAsync("ShowSkillsTitleComponent")
+                    </div>
+                </div>
+            </div>
+            <!-- end about -->
+        }
+
+        @if (ViewBag.ShowGallery == true)
+        {
+            <!-- start portfolio -->
+            @await Component.InvokeAsync("GalleryComponent")
+        }
+        <!-- end portfolio -->
+
+        @if (ViewBag.ShowContactMe == true)
+        {
+            <!-- start contact -->
+            <div id="contact" class="section">
+                <div class="container">
+                    <div class="row">
+                        @await Component.InvokeAsync("AboutComponent")
+                        @if (@ViewBag.ShowReciveInfo == true)
+                        {
+                            @await Component.InvokeAsync("ReciveInfoComponent")
+                        }
+                        <div class="col-md-1 col-sm-1"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- end contact -->
+        }
+            <!-- start footer -->
+            <footer>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 wow fadeIn" data-wow-delay="0.9s">
+                            <p>
+                                Copyright &copy; 2020 Morteza marivani Personal Site
+
+                                . Designed by <a rel="nofollow noopener" href="https://eng-marivani.ir/">morteza marivani Personal</a>
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <!-- end footer -->
+
+        </div>
+
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.fullPage.js"></script>
+    <script src="js/smoothscroll.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="js/jquery.simple-text-rotator.js"></script>
+    <script src="js/custom.js"></script>
+
+</body>
+</html>
+@RenderBody()

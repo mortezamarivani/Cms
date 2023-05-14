@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MyCms.DataLayer\MyCms.DataLayer.csproj" />
+    <ProjectReference Include="..\MyCms.DomainClasses\MyCms.DomainClasses.csproj" />
+  </ItemGroup>
+
+</Project>

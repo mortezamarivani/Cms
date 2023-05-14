@@ -1,0 +1,63 @@
+﻿@model IEnumerable<MyCms.ViewModels.Abouts.ShowAboutViewModel>
+
+<nav class="navbar navbar-link">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <form role="form" method="post">
+                <input name="send" type="submit" class="smoothScroll wow fadeInUp btn-languge" id="Persian" asp-action="SetPersianLanguge" value="Pe">
+                <input name="send" type="submit" class="smoothScroll wow fadeInUp btn-languge" id="Persian" asp-action="SetEnglishLanguge" value="En">
+                <input name="send" type="submit" class="smoothScroll wow fadeInUp btn-languge" id="Persian" asp-action="SeGermanLanguge" value="Gr">
+
+            </form>
+        </div>
+    </div>
+</nav>
+
+@foreach (var item in Model)
+{
+    @if (@item.Languge == (int)MyCms.Utilities.Enum.CommonEnum.LangugeEnum.En)
+    {
+        <h1>  @item.Name	</h1>
+        <h2>  @item.AboutTitle	</h2>
+        <div class="row">
+            <div class="col-md-1"><h2>  {{	</h2></div>
+            <div class="col-md-10"><h2 class="rotate"> @ViewBag.Items </h2></div>
+            <div class="col-md-1"><h2>  }}	</h2></div>
+        </div>
+        <div class="jumbotron2">
+            <div>
+                <p>@item.AboutDescription</p>
+            </div>
+        </div>
+    }
+    else if (@item.Languge == (int)MyCms.Utilities.Enum.CommonEnum.LangugeEnum.De)
+    {
+        <h1>  @item.Name	</h1>
+        <h2>  @item.AboutTitle	</h2>
+        <div class="row">
+            <div class="col-md-1"><h2>  {{	</h2></div>
+            <div class="col-md-10"><h2 class="rotate"> @ViewBag.Items </h2></div>
+            <div class="col-md-1"><h2>  }}	</h2></div>
+        </div>
+        <div class="jumbotron2">
+            <div>
+                <p>@item.AboutDescription</p>
+            </div>
+        </div>
+    }
+    else if (@item.Languge == (int)MyCms.Utilities.Enum.CommonEnum.LangugeEnum.Per)
+    {
+        <h1 class="Persianfont PersianTextAlign">  @item.Name	</h1>
+        <h2 class="Persianfont">@item.AboutTitle	</h2>
+        <div class="row">
+            <div class="col-md-1"><h2>  {{	</h2></div>
+            <div class="col-md-10"><h2 class="rotate Persianfont"> @ViewBag.Items </h2></div>
+            <div class="col-md-1"><h2>  }}	</h2></div>
+        </div>
+        <div class="jumbotron2">
+            <div style="text-align:right">
+                <p class="Persianfont PersianTextAlignJ">@item.AboutDescription</p>
+            </div>
+        </div>
+    }
+}

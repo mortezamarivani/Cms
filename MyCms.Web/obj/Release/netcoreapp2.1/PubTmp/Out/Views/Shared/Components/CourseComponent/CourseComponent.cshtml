@@ -1,0 +1,166 @@
+﻿@model IEnumerable<MyCms.DomainClasses.Course.Course>
+
+    <div class="col-md-12 col-xs-11 wow fadeInLeft" data-wow-delay="0.9s">
+        @{bool HeaderWrite = true;}
+
+
+        <div class="row ">
+            @foreach (var item in Model)
+            {
+                @if (@item.Languge == (int)MyCms.Utilities.Enum.CommonEnum.LangugeEnum.En)
+                {
+                    if (HeaderWrite)
+                    {
+                        <div class="row">
+                            <h2>My Course</h2>
+                        </div>
+                    }
+                    <div class="col-md-12 col-xs-11 wow fadeInUp " data-wow-delay="0.6s">
+                        <div class="media">
+                            <div class="media-object media-left ">
+                                <i class="fa fa-certificate"></i>
+                            </div>
+
+                            <div class="media-body">
+                                <div class="col-md-2">
+                                    <h3 class="media-heading" style="color:#D43F52">@item.CourseName</h3>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>
+                                        @if (@item.Tools != null)
+                                        {
+                                            <h>Tools  :  </h>@item.Tools;
+                                        }
+
+                                        @if (@item.StartDate != null)
+                                        {
+                                            <br /><h>Date:  </h>@item.StartDate;
+                                            <h> - </h>@item.EndDate;
+                                            <h></h>
+                                        }
+
+                                        @if (@item.Institute != null)
+                                        {<br /><h>Institute  :  </h>@item.Institute;
+                                    }
+                                        @if (@item.Period > 0)
+                                        {<h>(  </h>@item.Period <h> Hour) </h>;
+                                    }
+
+                                    </p>
+                                </div>
+                                <div class="col-md-3">
+                                    <p> @item.CourseDesc.Trim()<br /></p>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                }
+                else if (@item.Languge == (int)MyCms.Utilities.Enum.CommonEnum.LangugeEnum.De)
+                {
+                    if (HeaderWrite)
+                    {
+                        <div class="row">
+                            <h2>Ausbildung</h2>
+                        </div>
+                    }
+                    <div class="col-md-12 col-xs-11 wow fadeInUp " data-wow-delay="0.6s">
+                        <div class="media">
+                            <div class="media-object media-left ">
+                                <i class="fa fa-certificate"></i>
+                            </div>
+
+                            <div class="media-body">
+                                <div class="col-md-2">
+                                    <h3 class="media-heading" style="color:#D43F52">@item.CourseName</h3>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>
+                                        @if (@item.Tools != null)
+                                        {
+                                            <h>Tools  :  </h>@item.Tools;
+                                        }
+
+                                        @if (@item.StartDate != null)
+                                        {
+                                            <br /><h>Date:  </h>@item.StartDate;
+                                            <h> - </h>@item.EndDate;
+                                            <h></h>
+                                        }
+
+                                        @if (@item.Institute != null)
+                                        {<br /><h>Institute  :  </h>@item.Institute;
+                                    }
+                                        @if (@item.Period > 0)
+                                        {<h>(  </h>@item.Period <h> Hour) </h>;
+                                    }
+
+                                    </p>
+                                </div>
+                                <div class="col-md-3">
+                                    <p> @item.CourseDesc.Trim()<br /></p>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                }
+                else if (@item.Languge == (int)MyCms.Utilities.Enum.CommonEnum.LangugeEnum.Per)
+                {
+                    if (HeaderWrite)
+                    {
+                        <div class="row">
+                            <div class="col-md-12 wow bounce">
+                                <h2 class=" Persianfont PersianTextAlignC">دوره ها</h2>
+                            </div>
+                        </div>
+                    }
+                    <div class="col-md-12 col-xs-11 wow fadeInUp " data-wow-delay="0.6s">
+                        <div class="media">
+
+                            <div class="col-md-3">
+                                <p class=" Persianfont PersianTextAlignR"> @item.CourseDesc.Trim()<br /></p>
+                            </div>
+
+                            <div class="col-md-6">
+                                <p class=" Persianfont PersianTextAlignR">
+                                    @if (@item.Tools != null)
+                                    {
+                                        <h>ابزار:  </h>@item.Tools;
+                                    }
+
+                                    @if (@item.StartDate != null)
+                                    {
+                                        <br /><h>تاريخ:  </h>@item.StartDate;
+                                        <h> - </h>@item.EndDate;
+                                        <h></h>
+                                    }
+
+                                    @if (@item.Institute != null)
+                                    {<br /><h>موسسه:  </h>@item.Institute;
+                                }
+                                    @if (@item.Period > 0)
+                                    {<h><br />(  </h>@item.Period <h> Hour) </h>;
+                                }
+                                </p>
+                            </div>
+                            <div class="media-body">
+                                <div class="col-md-2">
+                                    <h3 class="media-heading Persianfont PersianTextAlignR" style="color:#D43F52">@item.CourseName </h3>
+                                </div>
+                            </div>
+
+                            <div class="media-object media-left ">
+                                <i class="fa fa-certificate"></i>
+                            </div>
+                        </div>
+                    </div>
+                }
+                HeaderWrite = false;
+
+            }
+        </div>
+    </div>
+

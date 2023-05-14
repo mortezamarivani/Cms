@@ -1,0 +1,139 @@
+﻿@model MyCms.DomainClasses.About.About
+
+
+@{
+    ViewData["Title"] = "Details About";
+}
+
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <h3 class="panel-title">Detail Of About</h3>
+    </div>
+    <div class="panel-body" style=" overflow-y: scroll; height: 650px;">
+        <div class="row">
+
+            <div class="col-md-11">
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Name)
+                    </dt>
+                    <dd>
+                        <div class="well well-sm">@Html.DisplayFor(model => model.Name) </div>
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.HomeDesc)
+                    </dt>
+                    <dd>
+                        <div class="well well-sm">@Html.DisplayFor(model => model.HomeDesc)</div>
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Mobile)
+                    </dt>
+                    <dd>
+                        <div class="well well-sm">@Html.DisplayFor(model => model.Mobile)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.TelPhon)
+                    </dt>
+                    <dd>
+                        <div class="well well-sm">@Html.DisplayFor(model => model.TelPhon)</div>
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Email)
+                    </dt>
+                    <dd>
+                        <div class="well well-sm">@Html.DisplayFor(model => model.Email)</div>
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Address)
+                    </dt>
+                    <dd>
+                        <div class="well well-sm">@Html.DisplayFor(model => model.Address)</div>
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.AboutHeader)
+                    </dt>
+                    <dd>
+                        <div class="well well-sm">@Html.DisplayFor(model => model.AboutHeader)</div>
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.AboutTitle)
+                    </dt>
+                    <dd>
+                        <div class="well well-sm">@Html.DisplayFor(model => model.AboutTitle)</div>
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.AboutDescription)
+                    </dt>
+                    <dd>
+                        <div class="well well-sm">@Html.DisplayFor(model => model.AboutDescription)</div>
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.InstagramID)
+                    </dt>
+                    <dd>
+                        <div class="well well-sm">@Html.DisplayFor(model => model.InstagramID)</div>
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.LinkdinAddress)
+                    </dt>
+                    <dd>
+                        <div class="well well-sm">@Html.DisplayFor(model => model.LinkdinAddress)</div>
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.TwitterAddress)
+                    </dt>
+                    <dd>
+                        <div class="well well-sm">@Html.DisplayFor(model => model.TwitterAddress)</div>
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.FacebookAddress)
+                    </dt>
+                    <dd>
+                        <div class="well well-sm">@Html.DisplayFor(model => model.FacebookAddress)</div>
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Status)
+                    </dt>
+                    <dd>
+                        <div class="well well-sm">
+                            @if (Model.Status == true)
+                            {<p>Enable</p>}
+                            @if (Model.Status == false)
+                            {<p>Disable</p>}
+                        </div>
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Languge)
+                    </dt>
+                    <dd>
+                        <div class="well well-sm">
+                            @if (Model.Languge == 0)
+                            {<p>Persian</p>}
+                            @if (Model.Languge == 1)
+                            {<p>English</p>}
+                            @if (Model.Languge == 2)
+                            {<p>German</p>}
+                        </div>
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.CreatedDate)
+                    </dt>
+                    <dd>
+                        <div class="well well-sm">@DateConvertor.ToShamsi(Model.CreatedDate)</div>
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.CreatorUserID)
+                    </dt>
+                    <dd>
+                        <div class="well well-sm">@Html.DisplayFor(model => model.CreatorUserID)</div>
+                    </dd>
+                </dl>
+                <div class="form-group">
+                    <a asp-action="Edit" class="btn btn-success" asp-route-id="@Model.AboutID">Edite</a> |
+                    <a asp-action="Index" class="btn btn-success">Back to List</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

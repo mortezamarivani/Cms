@@ -1,0 +1,79 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v2.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v2.1": {
+      "MyCms.Services/1.0.0": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.Tools.DotNet": "2.0.3",
+          "MyCms.DataLayer": "1.0.0",
+          "MyCms.DomainClasses": "1.0.0",
+          "MyCms.ViewModels": "1.0.0"
+        },
+        "runtime": {
+          "MyCms.Services.dll": {}
+        }
+      },
+      "Microsoft.EntityFrameworkCore.Tools.DotNet/2.0.3": {
+        "runtime": {
+          "lib/netcoreapp2.0/dotnet-ef.dll": {
+            "assemblyVersion": "2.0.3.0",
+            "fileVersion": "2.0.3.18114"
+          }
+        }
+      },
+      "MyCms.DataLayer/1.0.0": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.Tools.DotNet": "2.0.3",
+          "MyCms.DomainClasses": "1.0.0",
+          "MyCms.ViewModels": "1.0.0"
+        },
+        "runtime": {
+          "MyCms.DataLayer.dll": {}
+        }
+      },
+      "MyCms.DomainClasses/1.0.0": {
+        "runtime": {
+          "MyCms.DomainClasses.dll": {}
+        }
+      },
+      "MyCms.ViewModels/1.0.0": {
+        "runtime": {
+          "MyCms.ViewModels.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "MyCms.Services/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.EntityFrameworkCore.Tools.DotNet/2.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-iUxWokvgVsFR9qMbvvsXSlq/vcnl+DvPpdDlpPp17wh6XyZyh372AB0xnf6CR0frqPa0xpVQLdvX5xpZvVlKLQ==",
+      "path": "microsoft.entityframeworkcore.tools.dotnet/2.0.3",
+      "hashPath": "microsoft.entityframeworkcore.tools.dotnet.2.0.3.nupkg.sha512"
+    },
+    "MyCms.DataLayer/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "MyCms.DomainClasses/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "MyCms.ViewModels/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

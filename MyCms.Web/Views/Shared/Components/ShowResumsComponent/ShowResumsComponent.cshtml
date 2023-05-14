@@ -1,0 +1,53 @@
+﻿@model IEnumerable<MyCms.DomainClasses.Gallery.Gallery>
+@*<a href="#work" class="btn home-btn smoothScroll wow fadeInUp" data-wow-delay="0s">Get Started</a>
+
+
+    @foreach (var item in Model)
+    {
+        <a href="~/Gallery/@item" class="btn home-btn smoothScroll wow fadeInUp" data-wow-delay="0s">@item.GalleryDesc</a>
+
+    }*@
+@{bool HeaderWrite = true;}
+@if (Model.Count() == 0 && @ViewBag.Languge == (int)MyCms.Utilities.Enum.CommonEnum.LangugeEnum.En)
+{
+    <a href="#work" class="btn home-btn smoothScroll wow fadeInUp" data-wow-delay="0s">Get Started</a>
+}
+else if (Model.Count() == 0 && @ViewBag.Languge == (int)MyCms.Utilities.Enum.CommonEnum.LangugeEnum.De)
+{
+    <a href="#work" class="btn home-btn smoothScroll wow fadeInUp" data-wow-delay="0s">Start</a>
+}
+else if (Model.Count() == 0 && @ViewBag.Languge == (int)MyCms.Utilities.Enum.CommonEnum.LangugeEnum.Per)
+{
+    <a href="#work" class="btn home-btn smoothScroll wow fadeInUp Persianfont " data-wow-delay="0s">شروع</a>
+}
+
+@foreach (var item in Model)
+{
+    @if (@item.Languge == (int)MyCms.Utilities.Enum.CommonEnum.LangugeEnum.En)
+    {
+        if (HeaderWrite)
+        {
+            <a href="#work" class="btn home-btn smoothScroll wow fadeInUp" data-wow-delay="0s">Get Started</a>
+        }
+        <a href="~/Gallery/@item.GalleryName" class="btn home-btn smoothScroll wow fadeInUp" data-wow-delay="0s">@item.GalleryDesc</a>
+    }
+    else if (@item.Languge == (int)MyCms.Utilities.Enum.CommonEnum.LangugeEnum.De)
+    {
+        if (HeaderWrite)
+        {
+            <a href="#work" class="btn home-btn smoothScroll wow fadeInUp" data-wow-delay="0s">Start</a>
+        }
+        <a href="~/Gallery/@item.GalleryName" class="btn home-btn smoothScroll wow fadeInUp" data-wow-delay="0s">@item.GalleryDesc</a>
+    }
+    else if (@item.Languge == (int)MyCms.Utilities.Enum.CommonEnum.LangugeEnum.Per)
+    {
+        if (HeaderWrite)
+        {
+            <a href="#work" class="btn home-btn smoothScroll wow fadeInUp Persianfont " data-wow-delay="0s">شروع</a>
+        }
+
+        <a href="~/Gallery/@item.GalleryName" class="btn home-btn smoothScroll wow fadeInUp Persianfont" data-wow-delay="0s">@item.GalleryDesc</a>
+    }
+    HeaderWrite = false;
+
+}

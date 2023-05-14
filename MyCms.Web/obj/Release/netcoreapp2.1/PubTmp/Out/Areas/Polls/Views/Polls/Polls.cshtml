@@ -1,0 +1,167 @@
+﻿@model IEnumerable<MyCms.ViewModels.Polls.ShowPollsViewModel>
+
+
+
+    <div class="container">
+
+        @if (Model != null)
+        {
+                <div class="col-md-4 col-md-offset-4">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title PersianfontPollsTitle">کاندیدای مورد نظر خود را انتخاب کنید</h3>
+                        </div>
+                        <div class="panel-body">
+                            <form accept-charset="UTF-8" asp-action="CheckPolls" method="post">
+                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                @foreach (var item in Model)
+                                {
+                                    if (item.PollsCode == 100)
+                                    {
+                                    <div class="panel panelPolls panel-danger panel-dangerPolls">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="PollsCode" id="PollsCode" value="100" checked="checked">
+                                            <label class="form-check-label" for="PollsCode">
+                                                <span class="PersianfontPolls">عبدالناصر همتی	</span>
+                                            </label>
+                                        </div>
+                                        <div class="progress progressPolls">
+                                            <div class="progress-bar progress-barPoll" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width:  @item.Average%;">
+                                                <span class="PersianfontPollsNumber">  @item.Average%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    }
+                                @if (item.PollsCode == 200)
+                                    {
+                                <div class="panel panelPolls panel-danger panel-dangerPolls">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="PollsCode" id="PollsCode" value="200" checked>
+                                        <label class="form-check-label" for="PollsCode">
+                                            <span class="PersianfontPolls"> ابراهیم ریسی	</span>
+                                        </label>
+                                    </div>
+                                    <div class="progress progressPolls">
+                                        <div class="progress-bar progress-barPoll" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width:  @item.Average%;">
+                                            <span class="PersianfontPollsNumber">  @item.Average%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                    }
+                                @if (item.PollsCode == 300)
+                                    {
+                                <div class="panel panelPolls panel-danger panel-dangerPolls">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="PollsCode" id="PollsCode" value="300" checked>
+                                        <label class="form-check-label" for="PollsCode">
+
+                                            <span class="PersianfontPolls"> محسن رضایی	</span>
+                                        </label>
+                                    </div>
+                                    <div class="progress progressPolls">
+                                        <div class="progress-bar progress-barPoll" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width:  @item.Average%;">
+                                            <span class="PersianfontPollsNumber">  @item.Average%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                    }
+                                @if (item.PollsCode == 400)
+                                    {
+                                <div class="panel panelPolls panelPolls panel-danger panel-dangerPolls">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="PollsCode" id="PollsCode" value="400" checked>
+                                        <label class="form-check-label" for="PollsCode">
+                                            <span class="PersianfontPolls"> محسن مهرعلیزاده	</span>
+                                        </label>
+                                    </div>
+                                    <div class="progress progressPolls">
+                                        <div class="progress-bar progress-barPoll" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width:  @item.Average%;">
+                                            <span class="PersianfontPollsNumber">  @item.Average%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                    }
+                                @if (item.PollsCode == 500)
+                                    {
+                                <div class="panel panelPolls panel-danger panel-dangerPolls">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="PollsCode" id="PollsCode" value="500" checked>
+                                        <label class="form-check-label" for="PollsCode">
+                                            <span class="PersianfontPolls"> سعید جلیلی	</span>
+                                        </label>
+                                    </div>
+                                    <div class="progress progressPolls">
+                                        <div class="progress-bar progress-barPoll" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width:  @item.Average%;">
+                                            <span class="PersianfontPollsNumber">  @item.Average%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                    }
+                                @if (item.PollsCode == 600)
+                                    {
+                                <div class="panel panelPolls panel-danger panel-dangerPolls">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="PollsCode" id="PollsCode" value="600" checked>
+                                        <label class="form-check-label" for="PollsCode">
+                                            <span class="PersianfontPolls"> امیر حسین قاضی زاده	</span>
+                                        </label>
+                                    </div>
+                                    <div class="progress progressPolls">
+                                        <div class="progress-bar progress-barPoll" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width:  @item.Average%;">
+                                            <span class="PersianfontPollsNumber">  @item.Average%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                    }
+                                @if (item.PollsCode == 700)
+                                    {
+                                <div class="panel panelPolls panel-danger panel-dangerPolls">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="PollsCode" id="PollsCode" value="700" checked>
+                                        <label class="form-check-label" for="PollsCode">
+
+                                            <span class="PersianfontPolls"> علیرضا زاکانی</span>
+                                        </label>
+                                    </div>
+                                    <div class="progress progressPolls">
+                                        <div class="progress-bar progress-barPoll" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width:  @item.Average%;">
+                                            <span class="PersianfontPollsNumber">  @item.Average%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                    }
+                                @if (item.PollsCode == 800)
+                                    {
+                                <div class="panel panelPolls panel-danger panel-dangerPolls">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="PollsCode" id="PollsCode" value="800" checked>
+                                        <label class="form-check-label" for="PollsCode">
+
+                                            <span class="PersianfontPolls"> شرکت نخواهم کرد</span>
+                                        </label>
+                                    </div>
+                                    <div class="progress progressPolls">
+                                        <div class="progress-bar progress-barPoll" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width:  @item.Average%;">
+                                            <span class="PersianfontPollsNumber">  @item.Average%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                    }
+                                }
+                                <fieldset>
+                                    <input type="submit" value="ثبت نظرسنجی" class="btn btn-lg btn-success btn-block" />
+                                    <div class="text-danger">@ViewBag.Err</div>
+                                    <div class="text-success">@ViewBag.Success</div>
+                                </fieldset>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+           
+            
+        }
+
+    </div>
+
+

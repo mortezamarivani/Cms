@@ -1,0 +1,79 @@
+﻿@model IEnumerable<MyCms.ViewModels.Skills.ShowSkillsViewModel>
+
+    <div class="row ">
+        @{bool HeaderWrite = true;}
+        @foreach (var item in Model)
+        {
+            @if (@item.Languge == (int)MyCms.Utilities.Enum.CommonEnum.LangugeEnum.En)
+            {
+                if (HeaderWrite)
+                {
+                    <div class="row">
+                        <div class="col-md-12 wow bounce">
+                            <h2 class=" Persianfont PersianTextAlignC">WHAT I DO</h2>
+                        </div>
+                    </div>
+                }
+                <div class="col-md-4 col-xs-11 wow fadeInUp " data-wow-delay="0.6s">
+                    <div class="media">
+                        <div class="media-object media-left ">
+                            <i class="@item.BootstrapClassName"></i>
+                        </div>
+                        <div class="media-body">
+                            <h3 class="media-heading">@item.SkillsTitle</h3>
+                            <p>@item.SkillsDescription.Trim()</p>
+                        </div>
+                    </div>
+                </div>
+            }
+              else if(@item.Languge == (int)MyCms.Utilities.Enum.CommonEnum.LangugeEnum.De)
+                           {
+                                if (HeaderWrite)
+                                {
+                                    <div class="row">
+                                        <div class="col-md-12 wow bounce">
+                                            <h2 class=" Persianfont PersianTextAlignC">Was Ich Kann</h2>
+                                        </div>
+                                    </div>
+                                }
+                                <div class="col-md-4 col-xs-11 wow fadeInUp " data-wow-delay="0.6s">
+                                    <div class="media">
+                                        <div class="media-object media-left ">
+                                            <i class="@item.BootstrapClassName"></i>
+                                        </div>
+                                        <div class="media-body">
+                                            <h3 class="media-heading">@item.SkillsTitle</h3>
+                                            <p>@item.SkillsDescription.Trim()</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        else if (@item.Languge == (int)MyCms.Utilities.Enum.CommonEnum.LangugeEnum.Per)
+                            {
+                                if (HeaderWrite)
+                                {
+                                <div class="row">
+                                    <div class="col-md-12 wow bounce">
+                                        <h2 class=" Persianfont PersianTextAlignC">توانايي</h2>
+                                    </div>
+                                </div>
+                            }
+                            <div class="col-md-4 col-xs-11 wow fadeInUp " data-wow-delay="0.6s">
+                                <div class="media">
+
+                                    <div class="media-body">
+                                        <h3 class="media-heading Persianfont PersianTextAlignR">@item.SkillsTitle</h3>
+                                        <p class=" Persianfont PersianTextAlignR">@item.SkillsDescription.Trim()</p>
+                                    </div>
+                                    <div class="media-object media-left ">
+                                        <i class="@item.BootstrapClassName"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+HeaderWrite = false;
+
+                    }
+    </div>
+
+

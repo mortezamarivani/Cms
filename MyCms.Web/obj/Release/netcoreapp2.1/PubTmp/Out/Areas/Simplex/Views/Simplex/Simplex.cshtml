@@ -1,0 +1,325 @@
+﻿@model IEnumerable<MyCms.ViewModels.Simplex.ShowSimplexViewModel>
+
+<div class="container">
+
+    
+
+    @if (Model != null)
+    {
+    <div class="panel panel-info">
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-md-12" >
+                        <div class="col-md-4">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="PollsCode" id="PollsCode" value="500" checked>
+                                <label class="form-check-label" for="PollsCode">
+                                    <span class="PersianfontPolls"> Min	</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-check">
+                                <input class="form-check-input form-check-inline" type="radio" name="PollsCode" id="PollsCode" value="500" checked>
+                                <label class="form-check-label" for="PollsCode">
+                                    <span class="PersianfontPolls"> Max	</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <h3 class="panel-title PersianfontSimplex">نوع بهینه سازی</h3>
+                        </div>
+                    </div>
+                    <div class="col-md-12 panel panelPolls panel-danger panel-dangerPolls">
+                        <form accept-charset="UTF-8" asp-action="AddSt" method="post">
+                            <div class="col-md-5">
+                                <textarea name="StValue" rows="6" id="StValue" type="text" class="form-control  Qustion" placeholder="لطفا قیود / تابع هدف را وارد نمایید"> @ViewBag.StValue</textarea>
+                                <br />
+                            </div>
+                            <div class="col-md-2">
+                                <span class="label label-info PersianfontSimplex">تبدیل  به فرمت استاندارد </span>
+                            </div>
+
+                            <div class="col-md-5">
+                                <div class="Answer">
+                                    @*<textarea name="StValue" rows="6" id="StValueLiner" type="text" class="form-control  Answer" placeholder="استاندارد شده تابع هدف و قیود"> @ViewBag.StValueLiner</textarea>*@
+                                    @for (int i = 0; i < ViewBag.CountRowOfStValueLiner; i++)
+                                    {
+                                        for (int j = 0; j < 4; j++)
+                                        {
+                                            if (j == 1)
+                                            {
+                                                <span class="slakVar SelectZjCj">@ViewBag.StValueLinerArrya[i, j]</span>
+                                            }
+                                            else if (j == 2)
+                                            {
+                                                <span class="EqualVar">@ViewBag.StValueLinerArrya[i, j]</span>
+                                            }
+                                            else
+                                            {
+                                                <span class="Answer">@ViewBag.StValueLinerArrya[i, j]</span>
+                                            }
+
+                                        }
+                                        <br />
+                                    }
+                                    <br />
+                                </div>
+
+                            </div>
+                            <div class="col-md-2">
+                                <fieldset>
+                                    <input type="submit" value="ثبت " class="btn btn- btn-success btn-block PersianfontSimplex" />
+                                </fieldset>
+                            </div>
+                        </form>
+                        <form accept-charset="UTF-8" asp-action="Delete" method="post">
+                            <div class="col-md-2">
+                                <fieldset>
+                                    <input type="submit" value="حذف مساله  " class="btn btn- btn-warning btn-block PersianfontSimplex" />
+                                </fieldset>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+            <div class="panel-heading">
+                @for (int i = 0; i < ViewBag.countTble; i++)
+                {
+                    <form accept-charset="UTF-8" asp-action="CheckSimplex" method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="panel panelPolls panel-danger panel-dangerPolls">
+                            @for (int Row = 0; Row <= ViewBag.MaxRowIndex; Row++)
+                            {
+                                <div class="row ">
+                                    @for (int Col = 0; Col <= ViewBag.MaxColIndex; Col++)
+                                    {
+                                        <div class="col-md-1">
+                                            @if (Row == 0)
+                                            {
+                                                @if (Col == ViewBag.MaxColIndex || Col == 1)
+                                                {
+                                                    if (@ViewBag.indexOfInputVar[0, 1, i] == Col)
+                                                    {
+                                                        <div class="VarButton InputVar">
+                                                            <span>@ViewBag.simplexArray[Row, Col, i]</span>
+                                                            <i class="fa fa-arrow-down"></i>
+
+                                                        </div>
+                                                    }
+                                                    else
+                                                    {
+                                                        <div class="VarButton VarLeft">
+                                                            <span>@ViewBag.simplexArray[Row, Col, i]</span>
+                                                        </div>
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    if (@ViewBag.indexOfInputVar[0, 1, i] == Col)
+                                                    {
+                                                        <div class="VarButton InputVar">
+                                                            <span>@ViewBag.simplexArray[Row, Col, i]</span>
+                                                            <i class="fa fa-arrow-down"></i>
+                                                        </div>
+                                                    }
+                                                    else
+                                                    {
+                                                        <div class="VarButton">
+                                                            <span>@ViewBag.simplexArray[Row, Col, i]</span>
+                                                        </div>
+                                                    }
+                                                }
+                                            }
+                                            else if (Row == ViewBag.MaxRowIndex)
+                                            {
+
+                                                @if (Col == ViewBag.MaxColIndex)
+                                                {
+                                                    <div class="VarTop VarLeft">
+                                                        <span>@ViewBag.simplexArray[Row, Col, i]</span>
+                                                    </div>
+                                                }
+                                                else if (Col == 1)
+                                                {
+                                                    if (@ViewBag.indexOfMinVar[0, 1, i] == Col)
+                                                    {
+                                                        <div class="VarTop SelectZ">
+                                                            <span>@ViewBag.simplexArray[Row, Col, i]</span>
+                                                            <i class="fa fa-certificate"></i>
+                                                        </div>
+                                                    }
+                                                    else
+                                                    {
+                                                        <div class="VarTop VarLeft">
+                                                            <span>@ViewBag.simplexArray[Row, Col, i]</span>
+                                                        </div>
+                                                    }
+                                                }
+                                                else if (Col == 0)
+                                                {
+                                                    <div class="VarTop VarRight">
+                                                        <span>@ViewBag.simplexArray[Row, Col, i]</span>
+                                                    </div>
+                                                }
+                                                else
+                                                {
+                                                    if (@ViewBag.indexOfMinVar[0, 1, i] == Col)
+                                                    {
+                                                        <div class="VarTop SelectZ">
+                                                            <span>@ViewBag.simplexArray[Row, Col, i]</span>
+                                                            <i class="fa fa-certificate"></i>
+                                                        </div>
+                                                    }
+                                                    else
+                                                    {
+                                                        <div class="VarTop">
+                                                            <span>@ViewBag.simplexArray[Row, Col, i]</span>
+                                                        </div>
+                                                    }
+                                                }
+
+                                            }
+                                            else if (Col == 0)
+                                            {
+                                                @if (Row == 1 || Row == ViewBag.MaxRowIndex)
+                                                {
+                                                    if (@ViewBag.indexOfOutVar[0, 0, i] == Row)
+                                                    {
+                                                        <div class="VarRight OutputVar">
+                                                            <span>@ViewBag.simplexArray[Row, Col, i]</span>
+                                                            <i class="fa fa-arrow-left"></i>
+                                                        </div>
+                                                    }
+                                                    else
+                                                    {
+                                                        <div class="VarRight VarTop">
+                                                            <span>@ViewBag.simplexArray[Row, Col, i]</span>
+                                                        </div>
+                                                    }
+
+                                                }
+                                                else if (Row == ViewBag.MaxRowIndex)
+                                                {
+                                                    <div class="VarRight VarTop">
+                                                        <span>@ViewBag.simplexArray[Row, Col, i]</span>
+                                                    </div>
+                                                }
+                                                else
+                                                {
+                                                    if (@ViewBag.indexOfOutVar[0, 0, i] == Row)
+                                                    {
+                                                        <div class="VarRight OutputVar">
+                                                            <span>@ViewBag.simplexArray[Row, Col, i]</span>
+                                                            <i class="fa fa-arrow-left"></i>
+                                                        </div>
+                                                    }
+                                                    else
+                                                    {
+                                                        <div class="VarRight">
+                                                            <span>@ViewBag.simplexArray[Row, Col, i]</span>
+                                                        </div>
+                                                    }
+                                                }
+                                            }
+                                            else if (Col == ViewBag.MaxColIndex)
+                                            {
+                                                <div class="VarLeft">
+                                                    <span>@ViewBag.simplexArray[Row, Col, i]</span>
+                                                </div>
+                                            }
+                                            else if (Col == 1)
+                                            {
+                                                if (ViewBag.indexOfLolaVar[0, 0, i] == Row && ViewBag.indexOfLolaVar[0, 1, i] == Col)
+                                                {
+                                                    <div class="LolaVar">
+                                                        <span>@ViewBag.simplexArray[Row, Col, i]</span>
+                                                        <i class="fa fa-arrows-to-line"></i>
+                                                    </div>
+                                                }
+                                                else
+                                                {
+                                                    <div class="VarLeft">
+                                                        <span>@ViewBag.simplexArray[Row, Col, i]</span>
+                                                    </div>
+                                                }
+
+                                            }
+                                            else
+                                            {
+
+                                                if (ViewBag.indexOfLolaVar[0, 0, i] == Row && ViewBag.indexOfLolaVar[0, 1, i] == Col)
+                                                {
+                                                    <div class="LolaVar">
+                                                        <span>@ViewBag.simplexArray[Row, Col, i]</span>
+                                                        <i class="fa fa-arrows-to-line"></i>
+                                                    </div>
+                                                }
+                                                else
+                                                {
+                                                    <div>
+                                                        <span>@ViewBag.simplexArray[Row, Col, i]</span>
+                                                    </div>
+                                                }
+
+                                            }
+
+                                        </div>
+                                    }
+                                </div>
+                            }
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="col-md-12">
+                                        <div class="alert alert-info" role="alert">
+                                            <span class="label label-info PersianfontSimplex">Zj-Cj : </span>
+                                            @for (int Row = 0; Row <= ViewBag.MaxRowIndex; Row++)
+                                            {
+                                                @for (int Col = 0; Col <= ViewBag.MaxColIndex; Col++)
+                                                {
+                                                    if (@ViewBag.simplexArrayZ[Row, Col, i] != null)
+                                                    {
+                                                        <div class="col-md-2 SelectZjCj">
+                                                            <span>@ViewBag.simplexArrayZ[Row, Col, i]</span>
+                                                        </div>
+                                                    }
+                                                }
+                                            }
+
+                                            <hr />
+                                            <span class="label label-info PersianfontSimplex">نقات بهینه متناظر : </span>
+                                            @for (int Row = 1; Row <= ViewBag.MaxColIndex; Row++)
+                                            {
+                                                if (ViewBag.simplexArrayRhs[Row, i] != null)
+                                                {
+                                                    <div class="col-md-2 SelectZjCj">
+                                                        <span>@ViewBag.simplexArrayRhs[Row, i]</span>
+                                                    </div>
+                                                }
+
+                                            }
+
+                                            <div class="clearfix"></div>
+
+                                        </div>
+
+                                    </div>
+
+                                    </div>
+
+                                </div>
+                        </div>
+                    </form>
+                }
+
+            </div>
+
+    </div>
+    }
+    </div>
+
+

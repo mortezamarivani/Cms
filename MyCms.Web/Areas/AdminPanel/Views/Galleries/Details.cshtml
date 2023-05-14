@@ -1,0 +1,66 @@
+﻿@model MyCms.DomainClasses.Gallery.Gallery
+
+@{
+    ViewData["Title"] = "Details Gallery";
+}
+
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <h3 class="panel-title">Detail Of Gallery</h3>
+    </div>
+    <div class="panel-body" style=" overflow-y: scroll; height: 650px;">
+        <div class="row">
+
+            <div class="col-md-11">
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.GalleryDesc)
+                    </dt>
+                    <dd>
+                        <div class="well well-sm">@Html.DisplayFor(model => model.GalleryDesc)</div>
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.GalleryName)
+                    </dt>
+                    <dd>
+                        @*<div class="well well-sm">@Html.DisplayFor(model => model.GalleryName)</div>*@
+                        <img class="thumbnail" style="max-width:250px ;max-height:250px" src="~/Gallery/@Model.GalleryName" />
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Status)
+                    </dt>
+                    <dd>
+                        <div class="well well-sm">
+                            @if (Model.Status == true)
+                            {<p>Enable</p>}
+                            @if (Model.Status == false)
+                            {<p>Disable</p>}
+                        </div>
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.CreatedDate)
+                    </dt>
+                    <dd>
+                        <div class="well well-sm">@DateConvertor.ToShamsi(Model.CreatedDate)</div>
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.CreatorUserID)
+                    </dt>
+                    <dd>
+                        <div class="well well-sm">@Html.DisplayFor(model => model.CreatorUserID)</div>
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.PicRow)
+                    </dt>
+                    <dd>
+                        <div class="well well-sm">@Html.DisplayFor(model => model.PicRow)</div>
+                    </dd>
+                </dl>
+                <div class="form-group">
+                    <a asp-action="Edit" class="btn btn-success" asp-route-id="@Model.GalleryID">Edite</a> |
+                    <a asp-action="Index" class="btn btn-success">Back to List</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,148 @@
+﻿@model IEnumerable<MyCms.DomainClasses.Project.Project>
+
+    <div class="col-md-12 col-xs-11 wow fadeInLeft" data-wow-delay="0.9s">
+        @{bool HeaderWrite = true;}
+
+        @foreach (var item in Model)
+        {
+            @if (@item.Languge == (int)MyCms.Utilities.Enum.CommonEnum.LangugeEnum.En)
+            {
+                if (HeaderWrite)
+                {
+                    <div class="row">
+                        <h2>MY PROJECTS</h2>
+                    </div>
+                }
+                <div class="row">
+                    <div class="col-md-3">
+                        <h4>
+                            @item.ProjectName
+                        </h4>
+                    </div>
+                    <div class="col-md-6">
+                        <p>
+                            @if (@item.Tools != null)
+                            {
+                                <h>Tools  :  </h>@item.Tools;
+                            }
+
+                            @if (@item.Institute != null)
+                            {
+                                <br /><h>Position  :  </h>@item.Position;
+                            }
+
+                            @if (@item.Institute != null)
+                            {<br /><h>Institute  :  </h>@item.Institute;
+
+                        }
+                            @if (@item.Period > 0)
+                            {<h>(  </h>@item.Period <h> Month ) </h>;
+                        }
+
+                        </p>
+                    </div>
+                    <div class="col-md-3">
+                        <p>
+                            @item.ProjectDesc
+                        </p>
+                    </div>
+
+                </div>
+            }
+             else if (@item.Languge == (int)MyCms.Utilities.Enum.CommonEnum.LangugeEnum.De)
+                        {
+                            if (HeaderWrite)
+                            {
+                    <div class="row">
+                        <h2>Mein Projekt</h2>
+                    </div>
+                }
+                <div class="row">
+                    <div class="col-md-3">
+                        <h4>
+                            @item.ProjectName
+                        </h4>
+                    </div>
+                    <div class="col-md-6">
+                        <p>
+                            @if (@item.Tools != null)
+            {
+                                <h>Tools  :  </h>@item.Tools;
+            }
+
+            @if (@item.Institute != null)
+            {
+                                <br /><h>Position  :  </h>@item.Position;
+            }
+
+            @if (@item.Institute != null)
+            {<br /><h>Institute  :  </h>@item.Institute;
+
+            }
+            @if (@item.Period > 0)
+            {<h>(  </h>@item.Period <h> Month ) </h>;
+            }
+
+                        </p>
+                    </div>
+                    <div class="col-md-3">
+                        <p>
+                            @item.ProjectDesc
+                        </p>
+                    </div>
+
+                </div>
+            }
+            else if (@item.Languge == (int)MyCms.Utilities.Enum.CommonEnum.LangugeEnum.Per)
+        {
+            if (HeaderWrite)
+            {
+                    <h2 class=" Persianfont PersianTextAlignR">پروژه هاي من</h2>
+                }
+                <div class="col-md-12 Persianfont PersianTextAlignR">
+                    <div class="col-md-12 ">
+
+                        <div class="col-md-3 ">
+                            <p class="Persianfont PersianTextAlignR">
+                                @item.ProjectDesc
+                            </p>
+                        </div>
+                        <div class="col-md-6">
+                            <p>
+
+                                @if (@item.Tools != null)
+        {
+                                    <h>  ابزار:  </h>@item.Tools;
+        }
+
+        @if (@item.Position != null)
+        {
+                                    <br /> <h>  جايگاه:  </h>@item.Position;
+        }
+
+        @if (@item.Institute != null)
+        {
+                                    <br /> <h>  موسسه:  </h>@item.Institute;
+        }
+        @if (@item.Period > 0)
+        {
+                                    <br /> <h>  مدت زمان:  </h>@item.Period;<h> ماه  </h>
+                                }
+
+                            </p>
+                        </div>
+                        <div class="col-md-3">
+                            <h4 class="Persianfont PersianTextAlignR">
+                                @item.ProjectName
+                            </h4>
+                        </div>
+
+
+                    </div>
+                </div>
+            }
+            HeaderWrite = false;
+        }
+
+    </div>
+

@@ -1,0 +1,72 @@
+﻿@model IEnumerable<MyCms.DomainClasses.ReciveInfo.ReciveInfo>
+
+@{
+    ViewData["Title"] = "List of ReciveInfo";
+}
+
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <h3 class="panel-title">List of ReciveInfo</h3>
+    </div>
+    <div class="panel-body" style=" overflow-y: scroll; height: 650px;">
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SenderName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SenderEmail)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.ReciveMessage)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Status)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CreatedDate)
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SenderName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SenderEmail)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ReciveMessage)
+                                </td>
+                                <td>
+                                    @if (@item.Status == true)
+                                    {<p>Enable</p>}
+                                    @if (@item.Status == false)
+                                    {<p>Disable</p>}
+                                </td>
+                                <td>
+                                    @DateConvertor.ToShamsi(item.CreatedDate)
+                                </td>
+                                <td>
+                                    <a asp-action="Details" asp-route-id="@item.ReciveInfoID" class="btn btn-sm btn-info">Details</a> |
+                                    <a asp-action="Delete" asp-route-id="@item.ReciveInfoID" class="btn  btn-sm btn-danger">Delete</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <div class="panel-footer">
+                    <a asp-action="Create" class="btn btn-success">Create New ReciveInfo </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

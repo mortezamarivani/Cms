@@ -1,0 +1,164 @@
+﻿@model MyCms.DomainClasses.About.About
+
+@{
+    ViewData["Title"] = "Create About";
+}
+
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <h3 class="panel-title">Create About</h3>
+    </div>
+    <div class="panel-body"style=" overflow-y: scroll; height: 650px;">
+        <div class="row">
+            <div class="col-md-12">
+                <form asp-action="Create">
+                        <div asp-validation-summary="All" class="text-danger"></div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="Name" class="control-label"></label>
+                            <input asp-for="Name" class="form-control" />
+                            @*<span asp-validation-for="Name" class="text-danger"></span>*@
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="Mobile" class="control-label"></label>
+                            <input asp-for="Mobile" class="form-control" />
+                            @*<span asp-validation-for="Mobile" class="text-danger"></span>*@
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="TelPhon" class="control-label"></label>
+                            <input asp-for="TelPhon" class="form-control" />
+                            @*<span asp-validation-for="TelPhon" class="text-danger"></span>*@
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="Email" class="control-label"></label>
+                            <input asp-for="Email" class="form-control" />
+                            @*<span asp-validation-for="Email" class="text-danger"></span>*@
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="InstagramID" class="control-label"></label>
+                            <input asp-for="InstagramID" class="form-control" />
+                            @*<span asp-validation-for="InstagramID" class="text-danger"></span>*@
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="LinkdinAddress" class="control-label"></label>
+                            <input asp-for="LinkdinAddress" class="form-control" />
+                            @*<span asp-validation-for="LinkdinAddress" class="text-danger"></span>*@
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="TwitterAddress" class="control-label"></label>
+                            <input asp-for="TwitterAddress" class="form-control" />
+                            @*<span asp-validation-for="TwitterAddress" class="text-danger"></span>*@
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="AboutHeader" class="control-label"></label>
+                            <input asp-for="AboutHeader" class="form-control" />
+                            @*<span asp-validation-for="AboutHeader" class="text-danger"></span>*@
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="AboutTitle" class="control-label"></label>
+                            <input asp-for="AboutTitle" class="form-control" />
+                            @*<span asp-validation-for="AboutTitle" class="text-danger"></span>*@
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="FacebookAddress" class="control-label"></label>
+                            <input asp-for="FacebookAddress" class="form-control" />
+                            @*<span asp-validation-for="FacebookAddress" class="text-danger"></span>*@
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="Address" class="control-label"></label>
+                            <textarea asp-for="Address" class="form-control"></textarea>
+                            @*<span asp-validation-for="Address" class="text-danger"></span>*@
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="HomeDesc" class="control-label"></label>
+                            <textarea asp-for="HomeDesc" class="form-control"></textarea>
+                            @*<span asp-validation-for="HomeDesc" class="text-danger"></span>*@
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="AboutDescription" class="control-label"></label>
+                            <textarea asp-for="AboutDescription" class="form-control"></textarea>
+                            @*<span asp-validation-for="AboutDescription" class="text-danger"></span>*@
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group dropdown ">
+                            <label asp-for="Status" class="control-label">Status         : </label>
+                            <br />
+                            @Html.DropDownListFor(m => m.Status, new List<SelectListItem>
+                           { new SelectListItem{Text="Enable", Value="True"},
+                             new SelectListItem{Text="Disable", Value="False"}})
+                        </div>
+                    </div>
+                        <div class="col-md-3">
+                            <div class="form-group dropdown ">
+                                <label asp-for="Languge" class="control-label">Languge: </label>
+                                <br />
+                                @Html.DropDownListFor(m => m.Languge, new List<SelectListItem>
+                               { new SelectListItem{Text="Persian", Value="0"},
+                                 new SelectListItem{Text="English", Value="1"},
+                                 new SelectListItem{Text="German", Value="2"}})
+                            </div>
+                        </div>
+                        @*<div class="col-md-6">
+            <tr>
+                <td>Gender: </td>
+                <td>
+                    @Html.DropDownListFor(m => m.Status, new List<SelectListItem>
+                   { new SelectListItem{Text="Male", Value="M"},
+                     new SelectListItem{Text="Female", Value="F"}}, "Please select")
+                </td>
+            </tr>
+
+
+        </div>*@
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <input type="submit" value="Create" class="btn btn-success" />  |
+                                <a asp-action="Index" class="btn btn-success">Back to List</a>
+                            </div>
+                        </div>
+                        @*<div class="form-group">
+            <label asp-for="CreatedDate" class="control-label"></label>
+            <input asp-for="CreatedDate" class="form-control" />
+            <span asp-validation-for="CreatedDate" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="CreatorUserID" class="control-label"></label>
+            <input asp-for="CreatorUserID" class="form-control" />
+            <span asp-validation-for="CreatorUserID" class="text-danger"></span>
+        </div>*@
+
+</form>
+        </div>
+        </div>
+    </div>
+
+</div>
+@*@section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }*@

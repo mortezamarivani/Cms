@@ -1,0 +1,38 @@
+﻿@model IEnumerable<MyCms.ViewModels.Skills.ShowSkillsViewModel>
+
+
+
+
+    <div class="col-md-6 col-xs-11  wow fadeInRight" data-wow-delay="0.9s">
+
+
+        @foreach (var item in Model)
+        {
+            <span>@item.SkillsTitle <small>@item.Progress.ToString()%</small></span>
+            @if (item.Progress <= 30)
+            {
+                <div class="progress">
+                    <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: @item.Progress.ToString()%;"></div>
+                </div>
+
+            }
+            else if (item.Progress > 30 && item.Progress <= 70)
+            {
+                <div class="progress">
+                    <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: @item.Progress.ToString()%;"></div>
+                </div>
+            }
+            else if (item.Progress > 70)
+            {
+                <div class="progress">
+                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: @item.Progress.ToString()%;"></div>
+                </div>
+            }
+
+
+
+
+        }
+    </div>
+
+

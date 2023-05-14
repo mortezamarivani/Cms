@@ -1,0 +1,79 @@
+﻿@model IEnumerable<MyCms.DomainClasses.Gallery.Gallery>
+
+@{
+    ViewData["Title"] = "Show List Of Gallery";
+}
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <h3 class="panel-title">Gallery List</h3>
+    </div>
+    <div class="panel-body" style=" overflow-y: scroll; height: 650px;">
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.GalleryDesc)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.GalleryName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Status)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CreatedDate)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CreatorUserID)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.PicRow)
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.GalleryDesc)
+                            </td>
+                            <td>
+                                @*@Html.DisplayFor(modelItem => item.GalleryName)*@
+                                <img class="thumbnail" style="max-width:60px ;max-height:60px" src="~/Gallery/@item.GalleryName" />
+                            </td>
+                            <td>
+                                @if (@item.Status == true)
+                                {<p>Enable</p>}
+                                @if (@item.Status == false)
+                                {<p>Disable</p>}
+                            </td>
+                            <td>
+                                @DateConvertor.ToShamsi(item.CreatedDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CreatorUserID)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PicRow)
+                            </td>
+                            <td>
+                                <a asp-action="Edit" asp-route-id="@item.GalleryID" class="btn btn-sm  btn-primary">Edit</a> |
+                                <a asp-action="Details" asp-route-id="@item.GalleryID" class="btn btn-sm btn-info">Details</a> |
+                                <a asp-action="Delete" asp-route-id="@item.GalleryID" class="btn  btn-sm btn-danger">Delete</a>
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+                <div class="panel-footer">
+                    <a asp-action="Create" class="btn btn-success">Create New Gallery </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
